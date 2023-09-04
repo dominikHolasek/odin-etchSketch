@@ -11,6 +11,13 @@
 
 }
 
-.xDiv{
+.xAxisDiv{
     flex: 1;
+    height: 10rem;
+    width: 10rem;
+}
+
+/* .gridDiv:hover, */
+.xAxisDiv:hover{
+    background-color: black;
 }
