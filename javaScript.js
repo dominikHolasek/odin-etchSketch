@@ -1,29 +1,13 @@
 const board = document.querySelector('#hero');
 
-/* const gridDiv = document.createElement('div');
-gridDiv.classList.add('gridDiv');
-gridDiv.textContent = "Grid"; */
-
-//board.appendChild(gridDiv);
-
-/* let gridDiv = document.createElement('div');
-gridDiv.classList.add('gridDiv');
-gridDiv.textContent = "Grid";
-
-board.appendChild(gridDiv); */
 const gridSize = 16;
 
-for (let i = 0; i < gridSize; i++){
-    let gridDiv = document.createElement('div');
-    gridDiv.classList.add('gridDiv');
-    gridDiv.textContent = (i + 1) + '|';
-    board.appendChild(gridDiv);
-    
-    for(let x = 1; x < gridSize; x++){
+for (let i = 0; i < gridSize; i++){    
+    for(let x = 0; x < gridSize; x++){
         let xDiv = document.createElement('div');
         xDiv.classList.add('xAxisDiv');
-        xDiv.textContent = (x + 1) + '|';
-        gridDiv.appendChild(xDiv);
+        xDiv.textContent = '';
+        board.appendChild(xDiv);
     }
 }
 
