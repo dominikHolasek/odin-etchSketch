@@ -11,14 +11,17 @@ for (let i = 0; i < gridSize; i++){
     }
 }
 
+const boardDivs = Array.from(document.querySelectorAll(".xAxisDiv"));  
 
+console.log(boardDivs[0]);
+for(let i = 0; i < boardDivs.length; i++){
+    boardDivs[i].addEventListener("mouseover", () => {
+        boardDivs[i].style.backgroundColor = "black";
+    })
+}
 
-
-
-/* const container = document.querySelector('#container');
-
-const content = document.createElement('div');
-content.classList.add('content');
-content.textContent = 'This is the glorious text-content!';
-
-container.appendChild(content); */
+/* boardDivs.forEach((e), () => {
+    e.addEventListener("mouseover", () => {
+        e.style.backround = "black";
+    })
+}) */
