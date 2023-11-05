@@ -6,6 +6,8 @@ let gridSize = 32;
 let divSize = 37.5;
 let boardDiv = document.querySelectorAll('.xAxisDiv');
 let boardDivs = Array.from(document.querySelectorAll(".xAxisDiv"));
+let count = +0;
+let isRGBColor = false;
 
 function setDivGridSize(){
     if (gridSize < 16){
@@ -43,7 +45,8 @@ function boadrDivMoseOver(){
     console.log(boardDivs[0]);
     for(let i = 0; i < boardDivs.length; i++){
         boardDivs[i].addEventListener("mouseover", () => {
-            boardDivs[i].style.backgroundColor = "black";
+            boardDivs[i].style.backgroundColor = "rgba(0,0,0," + (count / 10) + ")";
+            count++;
         })
     } 
 }
@@ -62,6 +65,7 @@ function game(){
     
     sizeButton.addEventListener('click', () => {
         gridSize = +prompt('Write number from 8 to 64', '');
+        count = 0;
         removeBoard();
         setDivGridSize();
         createBoard();
