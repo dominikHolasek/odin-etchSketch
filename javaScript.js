@@ -4,6 +4,8 @@ const sizeButton = document.querySelector('#square_size');
 
 let gridSize = 32;
 let divSize = 37.5;
+let boardDiv = document.querySelectorAll('.xAxisDiv');
+let boardDivs = Array.from(document.querySelectorAll(".xAxisDiv"));
 
 function setDivGridSize(){
     if (gridSize < 16){
@@ -28,45 +30,43 @@ function createBoard(){
     }
 }
 
-function game(){
-    setDivGridSize();
-    createBoard();
-    let boardDiv = document.querySelectorAll('.xAxisDiv');
+function setBoardDivSize(){
+    boardDiv = document.querySelectorAll('.xAxisDiv');
     boardDiv.forEach(element => {
         element.style.height = divSize + "px";
         element.style.width = divSize + "px";
     });
-    
-    let boardDivs = Array.from(document.querySelectorAll(".xAxisDiv"));
+}
+
+function boadrDivMoseOver(){
+    boardDivs = Array.from(document.querySelectorAll(".xAxisDiv"));
     console.log(boardDivs[0]);
     for(let i = 0; i < boardDivs.length; i++){
         boardDivs[i].addEventListener("mouseover", () => {
             boardDivs[i].style.backgroundColor = "black";
         })
     } 
+}
+
+function removeBoard(){
+    boardDiv.forEach(element => {
+        element.remove();
+    });
+}
+
+function game(){
+    setDivGridSize();
+    createBoard();
+    setBoardDivSize();
+    boadrDivMoseOver();
     
-    function removeBoard(){
-        boardDiv.forEach(element => {
-            element.remove();
-        });
-    }
     sizeButton.addEventListener('click', () => {
         gridSize = +prompt('Write number from 8 to 64', '');
         removeBoard();
         setDivGridSize();
         createBoard();
-        boardDiv = document.querySelectorAll('.xAxisDiv');
-        boardDiv.forEach(element => {
-            element.style.height = divSize + "px";
-            element.style.width = divSize + "px";
-        });
-        boardDivs = Array.from(document.querySelectorAll(".xAxisDiv"));
-        console.log(boardDivs[0]);
-        for(let i = 0; i < boardDivs.length; i++){
-            boardDivs[i].addEventListener("mouseover", () => {
-            boardDivs[i].style.backgroundColor = "black";
-            })
-        } 
+        setBoardDivSize();
+        boadrDivMoseOver();
     });
 }
 
